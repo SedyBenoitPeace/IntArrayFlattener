@@ -24,7 +24,7 @@ namespace IntArrayFlattener
             Console.ReadLine();
         }
 
-        private static int [] FlatWitLinq(int [][] arrayToFlat)
+        public static int [] FlatWitLinq(int [][] arrayToFlat)
         {
             var arrayCheck = CheckArrayType(arrayToFlat);
             LaunchExceptionIfArrayWrong(arrayCheck);
@@ -32,7 +32,7 @@ namespace IntArrayFlattener
             return result.ToArray();
         }
 
-        private static int [] FlatArrayManually (int[][] arrayToFlat)
+        public static int [] FlatArrayManually (int[][] arrayToFlat)
         {
             var arrayCheck = CheckArrayType(arrayToFlat);
             LaunchExceptionIfArrayWrong(arrayCheck);
@@ -53,12 +53,12 @@ namespace IntArrayFlattener
             return result.ToArray();
         }
 
-        private static void LaunchExceptionIfArrayWrong(bool arrayCheck)
+        public static void LaunchExceptionIfArrayWrong(bool arrayCheck)
         {
-            if (!arrayCheck) throw new Exception("Wrong array type");
+            if (!arrayCheck) throw new InvalidCastException("Wrong array type");
         }
 
-        private static bool CheckArrayType(int[][] arrayToFlat)
+        public static bool CheckArrayType(int[][] arrayToFlat)
         {
             var isCorrectType = arrayToFlat.GetType().IsArrayOf<int>();
             return isCorrectType;
